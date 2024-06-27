@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 1</title>
+</head>
+<body>
+    <h2>Click enter and enter the input number</h2>
+    <button onclick="delivary()">Enter input number</button><br>
+    <p id="demo"></p>
+    <script>
+        function delivary() {
+            var inputNumber = prompt("Enter any input number", "enter only number");
+            
+            if (inputNumber === null || inputNumber.trim() === "") {
+                alert("Empty input will not be accepted");
+                return;
+            }
+
+            if (isNaN(inputNumber)) {
+                alert("Please enter a valid number");
+                return;
+            }
+
+            let total = inputNumber.length;
+            let Cal = parseInt(inputNumber);
+            let i;
+            let gon = 0;
+            
+            for (i = total; i > 0; i--) {
+                let sum;
+                sum = Cal % 10;
+                Cal = Math.floor(Cal / 10);
+                gon = gon * 10 + sum;
+            }
+
+            document.getElementById('demo').innerHTML = 'The Expected Output: ' + gon;
+        }
+    </script>
+</body>
+</html>
